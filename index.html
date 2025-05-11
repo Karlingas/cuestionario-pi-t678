@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="progress-indicator"></div>
+        <div id="question-area">
+            <h2 id="question-text"></h2>
+            <div id="options-container">
+                </div>
+        </div>
+        <div class="navigation-buttons">
+            <button id="prev-btn" onclick="prevQuestion()" disabled>Anterior</button>
+            <button id="next-btn" onclick="nextQuestion()">Siguiente</button>
+        </div>
+        <div id="completion-message" style="display:none;">
+            <h2>¡Cuestionario completado!</h2>
+            <p>Gracias por participar.</p>
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
