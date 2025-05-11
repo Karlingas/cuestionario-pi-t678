@@ -3,7 +3,7 @@ body {
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Alinea al inicio para cuestionarios largos */
     min-height: 100vh;
     margin: 0;
     padding: 20px;
@@ -17,6 +17,7 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 600px;
+    margin-top: 20px; /* Espacio superior */
 }
 
 #progress-indicator {
@@ -32,40 +33,67 @@ body {
     font-size: 1.4em;
 }
 
-#options-container button {
+#options-container button,
+#options-container label {
     display: block;
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
+    border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
     text-align: left;
     font-size: 1em;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+#options-container button:not(:disabled):hover,
+#options-container label:hover {
+    background-color: #e9e9e9;
+    border-color: #ccc;
+}
+#options-container button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
-#options-container button:hover {
-    background-color: #4cae4c;
-}
 
-#options-container input[type="radio"] {
+#options-container input[type="radio"],
+#options-container input[type="checkbox"] {
     margin-right: 10px;
+    vertical-align: middle;
 }
 
 #options-container label {
-    display: block;
-    padding: 12px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: #f9f9f9; /* Estilo base para labels */
 }
 
-#options-container label:hover {
-    background-color: #e9e9e9;
+/* Estilos para feedback de respuestas */
+.option.correct {
+    background-color: #d4edda !important; /* Verde para correcta */
+    border-color: #c3e6cb !important;
+    color: #155724 !important;
+}
+
+.option.incorrect {
+    background-color: #f8d7da !important; /* Rojo para incorrecta */
+    border-color: #f5c6cb !important;
+    color: #721c24 !important;
+}
+
+/* Estilo para la opción que el usuario seleccionó y era incorrecta */
+.option.user-selected-incorrect {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    opacity: 0.8; /* Un poco diferente para distinguirla si se muestra la correcta también */
+}
+
+
+#feedback-area {
+    margin-top: 15px;
+    font-weight: bold;
 }
 
 .navigation-buttons {
@@ -98,6 +126,14 @@ body {
     padding: 20px;
     color: #333;
 }
+#completion-message h2 {
+    color: #007bff;
+}
+#score-summary {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
 
 /* Responsive */
 @media (max-width: 480px) {
